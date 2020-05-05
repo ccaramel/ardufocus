@@ -68,11 +68,27 @@ void a4988::halt()
  * @details [long description]
  *
  */
+ 
+// ******************************************************************* //
+// Modifications pour utiliser le DRV8825 en 1:16eme et 1:32eme de pas // 
+// ******************************************************************* // 
+ 
+//void a4988::set_full_step()
+//{
+//  m_mode = 0x00;
+//  IO::write(m_pinout.ms1, LOW);
+//  IO::write(m_pinout.ms2, LOW);
+//  IO::write(m_pinout.ms3, LOW);
+
+//  // A4988: 400ns, A8825: 1.3us
+//  util::delay_2us();
+//}
+
 void a4988::set_full_step()
 {
   m_mode = 0x00;
-  IO::write(m_pinout.ms1, LOW);
-  IO::write(m_pinout.ms2, LOW);
+  IO::write(m_pinout.ms1, HIGH;
+  IO::write(m_pinout.ms2, HIGH);
   IO::write(m_pinout.ms3, LOW);
 
   // A4988: 400ns, A8825: 1.3us
@@ -80,17 +96,29 @@ void a4988::set_full_step()
 }
 
 
+
 /**
  * @brief [brief description]
  * @details [long description]
  *
  */
+//void a4988::set_half_step()
+//{
+//  m_mode = 0xFF;
+//  IO::write(m_pinout.ms1, HIGH);
+//  IO::write(m_pinout.ms2, LOW);
+//  IO::write(m_pinout.ms3, LOW);
+//
+//  // A4988: 400ns, A8825: 1.3us
+//  util::delay_2us();
+//}
+
 void a4988::set_half_step()
 {
   m_mode = 0xFF;
   IO::write(m_pinout.ms1, HIGH);
-  IO::write(m_pinout.ms2, LOW);
-  IO::write(m_pinout.ms3, LOW);
+  IO::write(m_pinout.ms2, HIGH);
+  IO::write(m_pinout.ms3, HIGH);
 
   // A4988: 400ns, A8825: 1.3us
   util::delay_2us();

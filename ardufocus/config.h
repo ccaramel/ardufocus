@@ -59,7 +59,7 @@
 // For more information read the [bug report].
 //
 // [bug report]: https://github.com/arduino/Arduino/issues/4492
-//#define ENABLE_REMOTE_RESET
+#define ENABLE_REMOTE_RESET
 
 // Enable a subset of commands to control the status of the DTR auto-reset
 // feature on the Arduino boards. By default Ardufocus uses a cap between the
@@ -94,19 +94,19 @@
 
 // Driver pin-out definition
 // Define bellow the pin-out for your specific driver.
-#ifdef MOTOR1_USE_ULN2003_DRIVER
-  //                    IN1, IN2, IN3, IN4
-  #define MOTOR1_PINOUT   2,   3,   4,   5
-#endif
+//#ifdef MOTOR1_USE_ULN2003_DRIVER
+//  //                    IN1, IN2, IN3, IN4
+//  #define MOTOR1_PINOUT   2,   3,   4,   5
+//#endif
 
 #ifdef MOTOR1_USE_A4988_DRIVER
   //                    MS1, MS2, MS3, SLEEP,  STEP, DIR
-  #define MOTOR1_PINOUT  12,  11,  10,     8,     7,   6
+  #define MOTOR1_PINOUT  12,  11,  10,     9,     8,   7
 #endif
 
 // Activate the following directive if you'd like to invert the motor rotation
 // changing the focus direction.
-//#define MOTOR1_INVERT_DIRECTION
+#define MOTOR1_INVERT_DIRECTION
 
 // When active Ardufocus will cut the stepper motor current when idle, in theory
 // this could lead to less accuracy between movements but will keep the motor
@@ -136,8 +136,8 @@
 //  - Max speed: 1000
 //  - Min speed: 250
 //
-#define MOTOR1_MAX_SPEED 150
-#define MOTOR1_MIN_SPEED  25
+#define MOTOR1_MAX_SPEED 800
+#define MOTOR1_MIN_SPEED  50
 
 
 // ----------------------------------------------------------------------------
@@ -159,15 +159,15 @@
 //         T                        T                         T
 //
 //#define USE_LINEAR_ACCEL
-#define USE_TRAPEZOID_ACCEL
-//#define USE_SMOOTHSTEP_ACCEL
+//#define USE_TRAPEZOID_ACCEL
+#define USE_SMOOTHSTEP_ACCEL
 
 // The acceleration profile, independent of the method used, has at least two
 // main periods: the ramp-up period when the motor is gaining speed and the
 // ramp-down period when the motor is losing speed. This setting controls the
 // duration of each one of those periods, the default value is 250 steps for
 // each period if left undefined.
-//#define ACCEL_DURATION 250
+#define ACCEL_DURATION 400
 
 // When acceleration control is active this setting controls the minimum
 // required number of steps on a movement for the algorithm to kick in. Any
@@ -204,12 +204,12 @@
 // This is the most basic user interface, it uses two keys to move the focuser
 // IN (FWD) and out (BWD). A third key (SWT) can be used to select the active
 // motor on a dual motor configuration.
-//#define USE_UI_KAP
+#define USE_UI_KAP
 
 // Use the following setings to select the input pins connected to each one of
 // the switches. The third button is optional.
-#define UI_KAP_FWD_BUTTON_PIN 16
-#define UI_KAP_BWD_BUTTON_PIN 17
+#define UI_KAP_FWD_BUTTON_PIN 15
+#define UI_KAP_BWD_BUTTON_PIN 16
 //#define UI_KAP_SWT_BUTTON_PIN 18
 
 // We like the switches to be wired in an active-low configuration, this way you
@@ -232,7 +232,7 @@
 
 // Pin A0 is channel 0 (..) pin A3 is channel 3
 // DO NOT USE CHANNEL 0, valid options are 1, 2 and 3
-#define UI_KAP_ADC_CHANNEL 1
+#define UI_KAP_ADC_CHANNEL 3
 
 
 // ----------------------------------------------------------------------------
