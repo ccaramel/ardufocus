@@ -87,7 +87,7 @@ void a4988::halt()
 void a4988::set_full_step()
 {
   m_mode = 0x00;
-  IO::write(m_pinout.ms1, HIGH;
+  IO::write(m_pinout.ms1, HIGH);
   IO::write(m_pinout.ms2, HIGH);
   IO::write(m_pinout.ms3, LOW);
 
